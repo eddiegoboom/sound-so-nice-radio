@@ -1,0 +1,11 @@
+key,value
+site_title,Sound So Nice Radio
+tagline,Listen back to past episodes.
+show_description,Add a short description of the show in the Settings tab (show_description).
+about,
+logo_url,
+default_hosts,
+default_in_show,"Feature, Hot In The Crates, Canadian Spotlight, DJ Mix"
+footer_text,Episodes are hosted by the CFRU 93.3 FM archive.
+footer_link_label,CFRU archive
+footer_link_url,https://archive.cfru.ca/

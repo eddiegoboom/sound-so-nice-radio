@@ -1,0 +1,681 @@
+{
+  "generated": "2026-11-23T17:08:33Z",
+  "source": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/",
+  "episodes": [
+    {
+      "id": "20261121-2100",
+      "file": "Sound So Nice-CFRU933.20261121.210000EST.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20261121.210000EST.mp3",
+      "date": "2026-11-21",
+      "time": "21:00",
+      "tz": "EST",
+      "size": "83M"
+    },
+    {
+      "id": "20261114-2100",
+      "file": "Sound So Nice-CFRU933.20261114.210000EST.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20261114.210000EST.mp3",
+      "date": "2026-11-14",
+      "time": "21:00",
+      "tz": "EST",
+      "size": "83M"
+    },
+    {
+      "id": "20261107-2100",
+      "file": "Sound So Nice-CFRU933.20261107.210000EST.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20261107.210000EST.mp3",
+      "date": "2026-11-07",
+      "time": "21:00",
+      "tz": "EST",
+      "size": "83M"
+    },
+    {
+      "id": "20261031-2100",
+      "file": "Sound So Nice-CFRU933.20261031.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20261031.210000EDT.mp3",
+      "date": "2026-10-31",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20261024-2100",
+      "file": "Sound So Nice-CFRU933.20261024.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20261024.210000EDT.mp3",
+      "date": "2026-10-24",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20261017-2100",
+      "file": "Sound So Nice-CFRU933.20261017.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20261017.210000EDT.mp3",
+      "date": "2026-10-17",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20261010-2100",
+      "file": "Sound So Nice-CFRU933.20261010.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20261010.210000EDT.mp3",
+      "date": "2026-10-10",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20261003-2100",
+      "file": "Sound So Nice-CFRU933.20261003.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20261003.210000EDT.mp3",
+      "date": "2026-10-03",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20260926-2100",
+      "file": "Sound So Nice-CFRU933.20260926.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260926.210000EDT.mp3",
+      "date": "2026-09-26",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20260905-2100",
+      "file": "Sound So Nice-CFRU933.20260905.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260905.210000EDT.mp3",
+      "date": "2026-09-05",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20260829-2200",
+      "file": "Sound So Nice-CFRU933.20260829.220000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260829.220000EDT.mp3",
+      "date": "2026-08-29",
+      "time": "22:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20260829-2100",
+      "file": "Sound So Nice-CFRU933.20260829.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260829.210000EDT.mp3",
+      "date": "2026-08-29",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20260822-2100",
+      "file": "Sound So Nice-CFRU933.20260822.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260822.210000EDT.mp3",
+      "date": "2026-08-22",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20260815-2100",
+      "file": "Sound So Nice-CFRU933.20260815.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260815.210000EDT.mp3",
+      "date": "2026-08-15",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20260808-2100",
+      "file": "Sound So Nice-CFRU933.20260808.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260808.210000EDT.mp3",
+      "date": "2026-08-08",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20260801-2100",
+      "file": "Sound So Nice-CFRU933.20260801.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260801.210000EDT.mp3",
+      "date": "2026-08-01",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20260725-2100",
+      "file": "Sound So Nice-CFRU933.20260725.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260725.210000EDT.mp3",
+      "date": "2026-07-25",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20260718-2100",
+      "file": "Sound So Nice-CFRU933.20260718.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260718.210000EDT.mp3",
+      "date": "2026-07-18",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20260711-2100",
+      "file": "Sound So Nice-CFRU933.20260711.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260711.210000EDT.mp3",
+      "date": "2026-07-11",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20260704-2100",
+      "file": "Sound So Nice-CFRU933.20260704.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260704.210000EDT.mp3",
+      "date": "2026-07-04",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20260627-2100",
+      "file": "Sound So Nice-CFRU933.20260627.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260627.210000EDT.mp3",
+      "date": "2026-06-27",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20260621-0000",
+      "file": "Sound So Nice-CFRU933.20260621.000000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260621.000000EDT.mp3",
+      "date": "2026-06-21",
+      "time": "00:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20260620-2300",
+      "file": "Sound So Nice-CFRU933.20260620.230000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260620.230000EDT.mp3",
+      "date": "2026-06-20",
+      "time": "23:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20260620-2200",
+      "file": "Sound So Nice-CFRU933.20260620.220000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260620.220000EDT.mp3",
+      "date": "2026-06-20",
+      "time": "22:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20260620-2100",
+      "file": "Sound So Nice-CFRU933.20260620.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260620.210000EDT.mp3",
+      "date": "2026-06-20",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20260613-2100",
+      "file": "Sound So Nice-CFRU933.20260613.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260613.210000EDT.mp3",
+      "date": "2026-06-13",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20260606-2100",
+      "file": "Sound So Nice-CFRU933.20260606.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260606.210000EDT.mp3",
+      "date": "2026-06-06",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20260530-2100",
+      "file": "Sound So Nice-CFRU933.20260530.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260530.210000EDT.mp3",
+      "date": "2026-05-30",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20260523-2100",
+      "file": "Sound So Nice-CFRU933.20260523.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260523.210000EDT.mp3",
+      "date": "2026-05-23",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20260516-2100",
+      "file": "Sound So Nice-CFRU933.20260516.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260516.210000EDT.mp3",
+      "date": "2026-05-16",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20260509-2100",
+      "file": "Sound So Nice-CFRU933.20260509.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260509.210000EDT.mp3",
+      "date": "2026-05-09",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20260502-2100",
+      "file": "Sound So Nice-CFRU933.20260502.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260502.210000EDT.mp3",
+      "date": "2026-05-02",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20260425-2100",
+      "file": "Sound So Nice-CFRU933.20260425.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260425.210000EDT.mp3",
+      "date": "2026-04-25",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20260418-2100",
+      "file": "Sound So Nice-CFRU933.20260418.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260418.210000EDT.mp3",
+      "date": "2026-04-18",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20260411-2100",
+      "file": "Sound So Nice-CFRU933.20260411.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260411.210000EDT.mp3",
+      "date": "2026-04-11",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20260404-2100",
+      "file": "Sound So Nice-CFRU933.20260404.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260404.210000EDT.mp3",
+      "date": "2026-04-04",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20260328-2100",
+      "file": "Sound So Nice-CFRU933.20260328.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260328.210000EDT.mp3",
+      "date": "2026-03-28",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20260321-2100",
+      "file": "Sound So Nice-CFRU933.20260321.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260321.210000EDT.mp3",
+      "date": "2026-03-21",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20260314-2100",
+      "file": "Sound So Nice-CFRU933.20260314.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260314.210000EDT.mp3",
+      "date": "2026-03-14",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20260307-2100",
+      "file": "Sound So Nice-CFRU933.20260307.210000EST.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260307.210000EST.mp3",
+      "date": "2026-03-07",
+      "time": "21:00",
+      "tz": "EST",
+      "size": "83M"
+    },
+    {
+      "id": "20260228-2100",
+      "file": "Sound So Nice-CFRU933.20260228.210000EST.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260228.210000EST.mp3",
+      "date": "2026-02-28",
+      "time": "21:00",
+      "tz": "EST",
+      "size": "83M"
+    },
+    {
+      "id": "20260221-2100",
+      "file": "Sound So Nice-CFRU933.20260221.210000EST.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260221.210000EST.mp3",
+      "date": "2026-02-21",
+      "time": "21:00",
+      "tz": "EST",
+      "size": "83M"
+    },
+    {
+      "id": "20260214-2100",
+      "file": "Sound So Nice-CFRU933.20260214.210000EST.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260214.210000EST.mp3",
+      "date": "2026-02-14",
+      "time": "21:00",
+      "tz": "EST",
+      "size": "83M"
+    },
+    {
+      "id": "20260207-2100",
+      "file": "Sound So Nice-CFRU933.20260207.210000EST.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260207.210000EST.mp3",
+      "date": "2026-02-07",
+      "time": "21:00",
+      "tz": "EST",
+      "size": "83M"
+    },
+    {
+      "id": "20260131-2100",
+      "file": "Sound So Nice-CFRU933.20260131.210000EST.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260131.210000EST.mp3",
+      "date": "2026-01-31",
+      "time": "21:00",
+      "tz": "EST",
+      "size": "83M"
+    },
+    {
+      "id": "20260124-2100",
+      "file": "Sound So Nice-CFRU933.20260124.210000EST.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260124.210000EST.mp3",
+      "date": "2026-01-24",
+      "time": "21:00",
+      "tz": "EST",
+      "size": "83M"
+    },
+    {
+      "id": "20260117-2100",
+      "file": "Sound So Nice-CFRU933.20260117.210000EST.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260117.210000EST.mp3",
+      "date": "2026-01-17",
+      "time": "21:00",
+      "tz": "EST",
+      "size": "83M"
+    },
+    {
+      "id": "20260110-2100",
+      "file": "Sound So Nice-CFRU933.20260110.210000EST.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260110.210000EST.mp3",
+      "date": "2026-01-10",
+      "time": "21:00",
+      "tz": "EST",
+      "size": "83M"
+    },
+    {
+      "id": "20260103-2100",
+      "file": "Sound So Nice-CFRU933.20260103.210000EST.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20260103.210000EST.mp3",
+      "date": "2026-01-03",
+      "time": "21:00",
+      "tz": "EST",
+      "size": "83M"
+    },
+    {
+      "id": "20251227-2100",
+      "file": "Sound So Nice-CFRU933.20251227.210000EST.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20251227.210000EST.mp3",
+      "date": "2025-12-27",
+      "time": "21:00",
+      "tz": "EST",
+      "size": "83M"
+    },
+    {
+      "id": "20251220-2100",
+      "file": "Sound So Nice-CFRU933.20251220.210000EST.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20251220.210000EST.mp3",
+      "date": "2025-12-20",
+      "time": "21:00",
+      "tz": "EST",
+      "size": "83M"
+    },
+    {
+      "id": "20251213-2100",
+      "file": "Sound So Nice-CFRU933.20251213.210000EST.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20251213.210000EST.mp3",
+      "date": "2025-12-13",
+      "time": "21:00",
+      "tz": "EST",
+      "size": "83M"
+    },
+    {
+      "id": "20251206-2100",
+      "file": "Sound So Nice-CFRU933.20251206.210000EST.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20251206.210000EST.mp3",
+      "date": "2025-12-06",
+      "time": "21:00",
+      "tz": "EST",
+      "size": "83M"
+    },
+    {
+      "id": "20251129-2100",
+      "file": "Sound So Nice-CFRU933.20251129.210000EST.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20251129.210000EST.mp3",
+      "date": "2025-11-29",
+      "time": "21:00",
+      "tz": "EST",
+      "size": "83M"
+    },
+    {
+      "id": "20251122-2100",
+      "file": "Sound So Nice-CFRU933.20251122.210000EST.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20251122.210000EST.mp3",
+      "date": "2025-11-22",
+      "time": "21:00",
+      "tz": "EST",
+      "size": "83M"
+    },
+    {
+      "id": "20251115-2100",
+      "file": "Sound So Nice-CFRU933.20251115.210000EST.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20251115.210000EST.mp3",
+      "date": "2025-11-15",
+      "time": "21:00",
+      "tz": "EST",
+      "size": "83M"
+    },
+    {
+      "id": "20251108-2100",
+      "file": "Sound So Nice-CFRU933.20251108.210000EST.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20251108.210000EST.mp3",
+      "date": "2025-11-08",
+      "time": "21:00",
+      "tz": "EST",
+      "size": "83M"
+    },
+    {
+      "id": "20251101-2100",
+      "file": "Sound So Nice-CFRU933.20251101.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20251101.210000EDT.mp3",
+      "date": "2025-11-01",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20251025-2100",
+      "file": "Sound So Nice-CFRU933.20251025.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20251025.210000EDT.mp3",
+      "date": "2025-10-25",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20251018-2100",
+      "file": "Sound So Nice-CFRU933.20251018.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20251018.210000EDT.mp3",
+      "date": "2025-10-18",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20251011-2100",
+      "file": "Sound So Nice-CFRU933.20251011.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20251011.210000EDT.mp3",
+      "date": "2025-10-11",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "48M"
+    },
+    {
+      "id": "20251004-2100",
+      "file": "Sound So Nice-CFRU933.20251004.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20251004.210000EDT.mp3",
+      "date": "2025-10-04",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20250927-2100",
+      "file": "Sound So Nice-CFRU933.20250927.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20250927.210000EDT.mp3",
+      "date": "2025-09-27",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20250906-2100",
+      "file": "Sound So Nice-CFRU933.20250906.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20250906.210000EDT.mp3",
+      "date": "2025-09-06",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20250830-2100",
+      "file": "Sound So Nice-CFRU933.20250830.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20250830.210000EDT.mp3",
+      "date": "2025-08-30",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20250823-2100",
+      "file": "Sound So Nice-CFRU933.20250823.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20250823.210000EDT.mp3",
+      "date": "2025-08-23",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20250816-2100",
+      "file": "Sound So Nice-CFRU933.20250816.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20250816.210000EDT.mp3",
+      "date": "2025-08-16",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20250809-2100",
+      "file": "Sound So Nice-CFRU933.20250809.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20250809.210000EDT.mp3",
+      "date": "2025-08-09",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20250802-2100",
+      "file": "Sound So Nice-CFRU933.20250802.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20250802.210000EDT.mp3",
+      "date": "2025-08-02",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20250726-2100",
+      "file": "Sound So Nice-CFRU933.20250726.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20250726.210000EDT.mp3",
+      "date": "2025-07-26",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20250719-2100",
+      "file": "Sound So Nice-CFRU933.20250719.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20250719.210000EDT.mp3",
+      "date": "2025-07-19",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20250713-0200",
+      "file": "Sound So Nice-CFRU933.20250713.020000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20250713.020000EDT.mp3",
+      "date": "2025-07-13",
+      "time": "02:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20250712-2100",
+      "file": "Sound So Nice-CFRU933.20250712.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20250712.210000EDT.mp3",
+      "date": "2025-07-12",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20250705-2100",
+      "file": "Sound So Nice-CFRU933.20250705.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20250705.210000EDT.mp3",
+      "date": "2025-07-05",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    },
+    {
+      "id": "20250628-2100",
+      "file": "Sound So Nice-CFRU933.20250628.210000EDT.mp3",
+      "url": "https://archive.cfru.ca/show/name/Sound%20So%20Nice/Sound%20So%20Nice-CFRU933.20250628.210000EDT.mp3",
+      "date": "2025-06-28",
+      "time": "21:00",
+      "tz": "EDT",
+      "size": "83M"
+    }
+  ]
+}

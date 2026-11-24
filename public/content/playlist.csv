@@ -1,0 +1,2 @@
+date,time,title,theme,hosts,guests,dj_mix,mix_themes,in_this_show,description,image,mp3_url,visible
+2000-01-01,21:00,Example episode (delete or edit this row),Example theme,"Host One, Host Two","Guest One, Guest Two",DJ Name,"Dub, Roots","Feature, Hot In The Crates, Canadian Spotlight, DJ Mix","A short description of the episode. Use date (YYYY-MM-DD) and time (24-hour, e.g. 21:00) to say which archived episode this row describes.",,,FALSE
