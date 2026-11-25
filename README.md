@@ -50,7 +50,7 @@ Only the published tabs are public; the sheet itself stays private to you and yo
 | `theme` | Optional. Comma-separated if there is more than one ("Jazz, Winter") |
 | `hosts`, `guests`, `dj_mix` | Comma-separated names. Blank hosts = `default_hosts` from Settings. `dj_mix` is who did the mix at the end of the show. Spelling matters for filtering, but capitalization doesn't ("dj kay" = "DJ Kay") |
 | `mix_themes` | Optional. Comma-separated themes/keywords for the DJ mix. Shown in brackets after the DJ Mix item ("DJ Mix by Eddie Go Boom (Dub, Roots)") and searchable |
-| `in_this_show` | Optional. Comma-separated segments **in running order**, shown as a numbered timeline in the now-playing panel (1 Feature, 2 Hot In The Crates, …). An item named `DJ Mix` becomes "DJ Mix by [dj_mix]" plus the mix themes. The Apps Script pre-fills new rows with `Feature, Hot In The Crates, Canadian Spotlight, DJ Mix`. Blank = `default_in_show` from Settings (same list) |
+| `in_this_show` | Optional. Comma-separated segments **in running order**, shown as a numbered timeline in the now-playing panel (1 Feature, 2 Hot In The Crates, …). An item named `DJ Mix` is shown as the DJ's name from `dj_mix`, then the mix themes in brackets, then a small "DJ MIX" tag (just "DJ Mix" if no DJ is listed). The Apps Script pre-fills new rows with `Feature, Hot In The Crates, Canadian Spotlight, DJ Mix`. Blank = `default_in_show` from Settings (same list) |
 | `description` | Optional. Line breaks are kept |
 | `image` | Optional. Link used for lock-screen artwork on phones |
 | `mp3_url` | Optional. Only for an episode that is **not** in the archive folder (a full link) |

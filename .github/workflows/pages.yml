@@ -36,5 +36,8 @@ jobs:
       - uses: actions/upload-pages-artifact@v5
         with:
           path: public
+      # GitHub's artifact list can lag a moment behind the upload; without a pause the deploy sometimes finds 0 artifacts.
+      - name: Wait for artifact to register
+        run: sleep 20
       - id: deployment
         uses: actions/deploy-pages@v5

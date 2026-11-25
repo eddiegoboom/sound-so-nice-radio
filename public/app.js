@@ -572,15 +572,16 @@
         );
       }
 
-      // "DJ Mix" in the running order becomes "DJ Mix by <name> (<mix themes>)" when the row has those details.
+      // "DJ Mix" in the running order becomes "<DJ name> (<mix themes>)" followed by a small "DJ Mix" tag
+      // when the row has a DJ. With no DJ listed it stays a plain "DJ Mix" item.
       const show = $("np-show");
       show.replaceChildren(...ep.inShow.map((s) => {
-        let text = s;
-        if (/^dj\s*mix$/i.test(s.trim())) {
-          if (ep.dj.length) text = `DJ Mix by ${ep.dj.join(", ")}`;
+        if (/^dj\s*mix$/i.test(s.trim()) && ep.dj.length) {
+          let text = ep.dj.join(", ");
           if (ep.mixThemes.length) text += ` (${ep.mixThemes.join(", ")})`;
+          return el("li", null, el("span", { class: "item", text }), " ", el("span", { class: "tag", text: "DJ Mix" }));
         }
-        return el("li", null, el("span", { class: "item", text }));
+        return el("li", null, el("span", { class: "item", text: s }));
       }));
       $("np-show-wrap").hidden = !ep.inShow.length;
 
