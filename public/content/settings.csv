@@ -2,6 +2,8 @@ key,value
 site_title,Sound So Nice Radio
 tagline,Listen back to past episodes.
 show_description,Add a short description of the show in the Settings tab (show_description).
+schedule_text,Live every Saturday 9–10 pm ET on CFRU 93.3 FM
+listen_live_url,https://listen.cfru.ca
 about,
 logo_url,
 default_hosts,

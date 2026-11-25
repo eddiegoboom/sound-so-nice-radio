@@ -11,6 +11,8 @@
     tagline: "",
     about: "",
     show_description: "",
+    schedule_text: "Live every Saturday, 9–10 pm ET on CFRU 93.3 FM",
+    listen_live_url: "https://listen.cfru.ca",
     logo_url: "",
     default_hosts: "",
     default_in_show: "Feature, Hot In The Crates, Canadian Spotlight, DJ Mix",
@@ -331,6 +333,17 @@
     const desc = $("show-desc");
     desc.textContent = s.show_description;
     desc.hidden = !s.show_description;
+
+    // Airtime line, with a link to the live stream
+    const sched = $("schedule");
+    const liveUrl = safeUrl(s.listen_live_url);
+    sched.replaceChildren();
+    if (s.schedule_text) sched.append(s.schedule_text);
+    if (liveUrl) {
+      if (s.schedule_text) sched.append(" · ");
+      sched.append(el("a", { href: liveUrl, target: "_blank", rel: "noopener", text: "Listen live" }));
+    }
+    sched.hidden = !s.schedule_text && !liveUrl;
 
     // Logo: the sheet's logo_url, else the bundled one. The text title shows until/unless it loads.
     const logoUrl = safeUrl(s.logo_url || "assets/logo.jpg");

@@ -50,7 +50,7 @@ Only the published tabs are public; the sheet itself stays private to you and yo
 | `theme` | Optional. Comma-separated if there is more than one ("Jazz, Winter") |
 | `hosts`, `guests`, `dj_mix` | Comma-separated names. Blank hosts = `default_hosts` from Settings. `dj_mix` is who did the mix at the end of the show. Spelling matters for filtering, but capitalization doesn't ("dj kay" = "DJ Kay") |
 | `mix_themes` | Optional. Comma-separated themes/keywords for the DJ mix. Shown in brackets after the DJ Mix item ("DJ Mix by Eddie Go Boom (Dub, Roots)") and searchable |
-| `in_this_show` | Optional. Comma-separated segments **in running order**, shown as arrows in the now-playing panel (Feature → Hot In The Crates → …). An item named `DJ Mix` becomes "DJ Mix by [dj_mix]" plus the mix themes. The Apps Script pre-fills new rows with `Feature, Hot In The Crates, Canadian Spotlight, DJ Mix`. Blank = `default_in_show` from Settings (same list) |
+| `in_this_show` | Optional. Comma-separated segments **in running order**, shown as a numbered timeline in the now-playing panel (1 Feature, 2 Hot In The Crates, …). An item named `DJ Mix` becomes "DJ Mix by [dj_mix]" plus the mix themes. The Apps Script pre-fills new rows with `Feature, Hot In The Crates, Canadian Spotlight, DJ Mix`. Blank = `default_in_show` from Settings (same list) |
 | `description` | Optional. Line breaks are kept |
 | `image` | Optional. Link used for lock-screen artwork on phones |
 | `mp3_url` | Optional. Only for an episode that is **not** in the archive folder (a full link) |
@@ -88,6 +88,8 @@ Under each episode's title the site shows `Hosts: … · Mix by: … (mix themes
 | `site_title` | Browser tab title. Shown as text only if the logo can't load |
 | `tagline` | Short line under the logo |
 | `show_description` | The quick show description, shown under the logo. Leave blank to hide it. Line breaks are kept |
+| `schedule_text` | When the show airs, shown under the description (built-in default: "Live every Saturday, 9–10 pm ET on CFRU 93.3 FM"). Blank = hidden |
+| `listen_live_url` | Where the "Listen live" link after the airtime goes (default `https://listen.cfru.ca`, CFRU's live stream). Blank = no link |
 | `about` | Optional longer "About" section near the bottom. Blank = hidden |
 | `logo_url` | Optional. Blank uses the bundled `public/assets/logo.jpg` |
 | `default_hosts` | Hosts used for any episode that doesn't list its own |
