@@ -21,6 +21,7 @@
 
   <main class="wrap">
     <section class="card player" aria-labelledby="np-title">
+      <p id="np-badge" class="badge" hidden>Latest episode</p>
       <h2 id="np-title">Loading…</h2>
       <p id="np-theme" class="theme" hidden></p>
       <dl id="np-people" class="people"></dl>
@@ -79,6 +80,13 @@
       </form>
       <ol id="playlist" class="playlist"></ol>
       <p id="pl-status" class="msg" role="status"></p>
+      <button id="pl-more" class="btn-more" type="button" hidden>Show more</button>
+    </section>
+
+    <section id="submit-sec" aria-labelledby="submit-h" hidden>
+      <h2 id="submit-h" class="section-h">Submit your music</h2>
+      <p id="submit-text" class="about"></p>
+      <div id="submit-actions" class="submit-actions"></div>
     </section>
 
     <section id="social-sec" aria-labelledby="soc-h" hidden>

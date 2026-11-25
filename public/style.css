@@ -227,6 +227,30 @@ button:disabled { opacity: 0.4; cursor: default; }
 
 .about { white-space: pre-line; margin: 0; }
 
+.badge {
+  display: inline-block; margin: 0 0 4px; padding: 1px 9px; border-radius: 3px;
+  background: var(--red); color: #fff; font-family: var(--display); letter-spacing: 0.12em;
+  text-transform: uppercase; font-size: 0.95rem; line-height: 1.5;
+}
+.ep .badge { display: block; width: max-content; margin-bottom: 2px; font-size: 0.8rem; }
+.player .badge { background: var(--gold); color: #141110; }
+.player .badge[hidden], .badge[hidden] { display: none; }
+
+.btn-more {
+  display: block; margin: 12px auto 0; padding: 8px 22px; border-radius: 3px; cursor: pointer;
+  background: transparent; color: inherit; border: 2px solid var(--gold); font: inherit; font-weight: 600;
+}
+.btn-more:hover { background: var(--gold); color: #141110; }
+.btn-more[hidden] { display: none; }
+
+.submit-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+.btn-submit {
+  display: inline-block; padding: 9px 20px; border-radius: 3px; text-decoration: none; font-weight: 600;
+  background: var(--gold); color: #141110; border: 2px solid var(--gold);
+}
+.btn-submit.alt { background: transparent; color: inherit; }
+.btn-submit:hover { background: var(--red); border-color: var(--red); color: #fff; }
+
 /* ---------- Footer ---------- */
 .site-footer { margin-top: 56px; color: var(--muted); font-size: 0.9rem; text-align: center; }
 .site-footer .wrap { padding-top: 22px; padding-bottom: 36px; }

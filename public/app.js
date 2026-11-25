@@ -14,6 +14,9 @@
     logo_url: "",
     default_hosts: "",
     default_in_show: "Feature, Hot In The Crates, Canadian Spotlight, DJ Mix",
+    submit_text: "Are you an artist? Send us your music for a chance to be played on the show.",
+    submit_email: "",
+    submit_form_url: "",
     footer_text: "",
     footer_link_label: "",
     footer_link_url: "",
@@ -342,6 +345,21 @@
 
     if (s.about) { $("about").textContent = s.about; $("about-sec").hidden = false; }
 
+    // Artist submissions: a form link and/or an email address. The section stays hidden if neither is set.
+    const formUrl = safeUrl(s.submit_form_url);
+    const email = /^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test((s.submit_email || "").trim()) ? s.submit_email.trim() : "";
+    if (formUrl || email) {
+      $("submit-text").textContent = s.submit_text;
+      const actions = $("submit-actions");
+      if (formUrl) actions.append(el("a", { class: "btn-submit", href: formUrl, target: "_blank", rel: "noopener", text: "Submit a track" }));
+      if (email) {
+        const subject = encodeURIComponent("Music submission for " + s.site_title);
+        const body = encodeURIComponent("Artist name:\nTrack title:\nLink to the track (SoundCloud, Bandcamp, Dropbox, etc.):\nWhere you're from:\nAnything else we should know:\n");
+        actions.append(el("a", { class: formUrl ? "btn-submit alt" : "btn-submit", href: `mailto:${email}?subject=${subject}&body=${body}`, text: formUrl ? "Or email us" : "Email us your track" }));
+      }
+      $("submit-sec").hidden = false;
+    }
+
     const foot = $("footer-text");
     foot.textContent = s.footer_text || "";
     const link = safeUrl(s.footer_link_url);
@@ -394,6 +412,7 @@
       const btn = el("button", { class: "ep", type: "button" },
         el("span", { class: "ep-icon" }),
         el("span", null,
+          i === 0 ? el("span", { class: "badge", text: "Latest" }) : null,
           el("span", { class: "ep-title", text: ep.title }),
           el("span", { class: "ep-sub", text: peopleLine(ep) })
         )
@@ -434,17 +453,37 @@
       $("b-next").disabled = neighbor(1) < 0;
     }
 
-    function applyFilters() {
-      let shown = 0;
+    // Only the first PAGE matching episodes are listed; "Show more" reveals PAGE more.
+    const PAGE = 10;
+    let limit = PAGE;
+
+    function applyFilters(keepLimit) {
+      if (keepLimit !== true) limit = PAGE;
+      let matched = 0;
       buttons.forEach((b, i) => {
         const ok = matches(episodes[i]);
-        b.parentElement.hidden = !ok;
-        if (ok) shown++;
+        if (ok) matched++;
+        b.parentElement.hidden = !ok || matched > limit;
       });
+      const listed = Math.min(matched, limit);
       const active = filters.q || filters.host || filters.guest || filters.dj;
       $("f-clear").hidden = !active;
-      $("pl-status").textContent = !active ? "" : shown ? `Showing ${shown} of ${episodes.length} episodes.` : "No episodes match your search.";
+      $("pl-status").textContent = !matched ? "No episodes match your search."
+        : active ? `Showing ${listed} of ${matched} matching episodes.`
+        : matched > listed ? `Showing ${listed} of ${matched} episodes.` : "";
+      const more = $("pl-more");
+      more.hidden = matched <= listed;
+      more.textContent = `Show ${Math.min(PAGE, matched - listed)} more`;
       updateNav();
+    }
+
+    $("pl-more").addEventListener("click", () => { limit += PAGE; applyFilters(true); });
+
+    // Make sure the selected episode is in the visible part of the list.
+    function ensureListed(i) {
+      let rank = 0;
+      for (let n = 0; n <= i; n++) if (matches(episodes[n])) rank++;
+      if (matches(episodes[i]) && rank > limit) { limit = rank; applyFilters(true); }
     }
 
     function syncFilterUI() {
@@ -499,6 +538,7 @@
 
     function renderNowPlaying(ep) {
       $("np-title").textContent = ep.panelTitle;
+      $("np-badge").hidden = ep !== episodes[0];
       const theme = $("np-theme");
       theme.textContent = ep.themes.length ? `Theme: ${ep.themes.join(", ")}` : "";
       theme.hidden = !ep.themes.length;
@@ -570,6 +610,7 @@
       const ep = episodes[i];
       idx = i;
       pendingSeek = 0;
+      ensureListed(i);
       if (audio.getAttribute("src") !== ep.url) {
         audio.src = ep.url;
         $("seek").value = 0;
@@ -658,6 +699,7 @@
     }
 
     setupFilters();
+    applyFilters();
 
     const [hashId, ...hashRest] = location.hash.slice(1).split("&");
     const hashT = parseTime((hashRest.map((p) => p.split("=")).find(([k]) => k === "t") || [])[1]);

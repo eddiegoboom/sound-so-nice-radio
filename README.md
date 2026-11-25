@@ -22,6 +22,10 @@ scripts/fetch_episodes.py  <- reads the archive folder, writes episodes.json
 
 Above the episode list, visitors can search (title, theme, hosts, guests, DJ mix, description, date) and filter by **Host**, **Guest** and **DJ mix**. The dropdowns fill themselves from whatever names appear in the sheet, and a dropdown is hidden if nobody is listed for it yet. Clicking a name chip on the now-playing panel filters to that person. Previous/next and auto-advance follow the filtered list.
 
+## Latest episode and long lists
+
+The newest episode is tagged **Latest** in the list and in the player. The list shows the 10 newest episodes with a **Show more** button for 10 more at a time. Searching or filtering searches every episode, and opening a link to an older episode expands the list to include it.
+
 ## Share a moment
 
 The player has a **Copy link at 0:00** button that copies a link to the current episode at the current playback time, like `https://yoursite/#20261121-2100&t=1h12m30s`. Opening it selects that episode and jumps to the time. Browsers often block sound until the visitor interacts, so they may need to press Play once. `t` also accepts plain seconds (`t=4350`).
@@ -88,6 +92,9 @@ Under each episode's title the site shows `Hosts: … · Mix by: … (mix themes
 | `logo_url` | Optional. Blank uses the bundled `public/assets/logo.jpg` |
 | `default_hosts` | Hosts used for any episode that doesn't list its own |
 | `default_in_show` | "In this show" items used for any episode whose `in_this_show` is blank. Built-in default: `Feature, Hot In The Crates, Canadian Spotlight, DJ Mix` |
+| `submit_email` | Email address for artist submissions. Shows an "Email us your track" button that opens a pre-filled message. Blank = no email button |
+| `submit_form_url` | Link to a form (for example a Google Form) for artist submissions. Shows a "Submit a track" button. Blank = no form button |
+| `submit_text` | The sentence above the submission buttons. The whole "Submit your music" section stays hidden until `submit_email` or `submit_form_url` is set |
 | `footer_text`, `footer_link_label`, `footer_link_url` | The footer line and its link |
 
 Unknown keys are ignored (so an old `accent_color` or `episode_title_prefix` row does nothing and can be deleted).
