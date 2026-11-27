@@ -26,6 +26,16 @@ Above the episode list, visitors can search (title, theme, hosts, guests, DJ mix
 
 The newest episode is tagged **Latest** in the list and in the player. The list shows the 10 newest episodes with a **Show more** button for 10 more at a time. Searching or filtering searches every episode, and opening a link to an older episode expands the list to include it.
 
+## Live show (and testing it)
+
+There is only ever one player. During the weekly slot set in Settings (`live_day`, `live_start`, `live_end`), the live stream becomes the **first entry of the playlist and is loaded in the player, ready to play**, with a red **Live now** tag. It shows tonight's details from the Playlist sheet (the row dated today: title, theme, hosts, guests, DJ mix, "In this show", description). The latest archived episode stays in the list as a normal row, and while the show is live nothing carries the green "Latest" tag. When the slot ends, the page drops the live entry the next time it refreshes (it never interrupts someone who is listening).
+
+The live entry has no progress bar or skip buttons, since a stream has no timeline.
+
+To test it outside the show's hours, add `?live` to the address (for example `http://localhost:8000/?live`). It shows the live entry with a "Test mode" note, using tonight's row or, if there isn't one, your newest row. `?live=off` hides it even during the show. `?admin` shows the configured slot, the current time in that time zone, and whether the live entry is on. To test the real schedule logic, temporarily set `live_day`, `live_start` and `live_end` in Settings to a window that includes right now.
+
+The stream plays whatever CFRU is airing at that moment, not necessarily your show.
+
 ## Share a moment
 
 The player has a **Copy link at 0:00** button that copies a link to the current episode at the current playback time, like `https://yoursite/#20261121-2100&t=1h12m30s`. Opening it selects that episode and jumps to the time. Browsers often block sound until the visitor interacts, so they may need to press Play once. `t` also accepts plain seconds (`t=4350`).
@@ -89,9 +99,11 @@ Under each episode's title the site shows `Hosts: … · Mix by: … (mix themes
 | `tagline` | Short line under the logo |
 | `show_description` | The quick show description, shown under the logo. Leave blank to hide it. Line breaks are kept |
 | `schedule_text` | When the show airs, shown under the description (built-in default: "Live every Saturday, 9–10 pm ET on CFRU 93.3 FM"). Blank = hidden |
-| `listen_live_url` | Where the "Listen live" link after the airtime goes (default `https://listen.cfru.ca`, CFRU's live stream). Blank = no link |
+| `listen_live_url` | The live stream the Live now entry plays (default `https://listen.cfru.ca`, CFRU's live stream). Blank = the default |
+| `live_day`, `live_start`, `live_end` | When the show airs live each week, e.g. `Saturday`, `21:00`, `22:00` (defaults). During that window a red **Live now** player with a **Listen now** button is featured at the top and plays `listen_live_url`. A blank `live_day` turns the live player off. The site keeps showing it while someone is still listening after the end time |
+| `live_timezone` | Time zone for those times (default `America/Toronto`, so daylight saving is handled) |
 | `about` | Optional longer "About" section near the bottom. Blank = hidden |
-| `logo_url` | Optional. Blank uses the bundled `public/assets/logo.jpg` |
+| `logo_url` | Optional. Blank uses the bundled vector logo, `public/assets/logo.svg` |
 | `default_hosts` | Hosts used for any episode that doesn't list its own |
 | `default_in_show` | "In this show" items used for any episode whose `in_this_show` is blank. Built-in default: `Feature, Hot In The Crates, Canadian Spotlight, DJ Mix` |
 | `submit_email` | Email address for artist submissions. Shows an "Email us your track" button that opens a pre-filled message. Blank = no email button |
@@ -103,7 +115,7 @@ Unknown keys are ignored (so an old `accent_color` or `episode_title_prefix` row
 
 ## Design
 
-Minimal, with a nod to reggae sound-system culture: a black "speaker box" player with speaker-cone rings, a red/gold/green stripe, and condensed poster lettering (Bebas Neue, self-hosted from `public/fonts/` under the SIL Open Font License). The page follows the visitor's light/dark setting. The colors and fonts live at the top of `public/style.css`. To swap the logo, replace `public/assets/logo.jpg` (the bundled one is only 150 px wide, so a larger file will look sharper on high-resolution screens).
+Minimal, with a nod to reggae sound-system culture: a black "speaker box" player with speaker-cone rings, a red/gold/green stripe, and condensed poster lettering (Bebas Neue, self-hosted from `public/fonts/` under the SIL Open Font License). The page follows the visitor's light/dark setting. The colors and fonts live at the top of `public/style.css`. To swap the logo, replace `public/assets/logo.svg` (the bundled one is a vector redraw, so it stays sharp at any size) or set `logo_url` in Settings.
 
 ### Social tab
 

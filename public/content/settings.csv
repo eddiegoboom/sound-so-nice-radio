@@ -4,6 +4,10 @@ tagline,Listen back to past episodes.
 show_description,Add a short description of the show in the Settings tab (show_description).
 schedule_text,Live every Saturday 9–10 pm ET on CFRU 93.3 FM
 listen_live_url,https://listen.cfru.ca
+live_day,Saturday
+live_start,21:00
+live_end,22:00
+live_timezone,America/Toronto
 about,
 logo_url,
 default_hosts,

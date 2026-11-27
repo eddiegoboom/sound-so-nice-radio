@@ -13,6 +13,11 @@
     show_description: "",
     schedule_text: "Live every Saturday, 9–10 pm ET on CFRU 93.3 FM",
     listen_live_url: "https://listen.cfru.ca",
+    // When the show airs live. Blank live_day turns the live player off. Times are in live_timezone.
+    live_day: "Saturday",
+    live_start: "21:00",
+    live_end: "22:00",
+    live_timezone: "America/Toronto",
     logo_url: "",
     default_hosts: "",
     default_in_show: "Feature, Hot In The Crates, Canadian Spotlight, DJ Mix",
@@ -334,25 +339,21 @@
     desc.textContent = s.show_description;
     desc.hidden = !s.show_description;
 
-    // Airtime line, with a link to the live stream
+    // Airtime line
     const sched = $("schedule");
-    const liveUrl = safeUrl(s.listen_live_url);
-    sched.replaceChildren();
-    if (s.schedule_text) sched.append(s.schedule_text);
-    if (liveUrl) {
-      if (s.schedule_text) sched.append(" · ");
-      sched.append(el("a", { href: liveUrl, target: "_blank", rel: "noopener", text: "Listen live" }));
-    }
-    sched.hidden = !s.schedule_text && !liveUrl;
+    sched.textContent = s.schedule_text;
+    sched.hidden = !s.schedule_text;
 
     // Logo: the sheet's logo_url, else the bundled one. The text title shows until/unless it loads.
-    const logoUrl = safeUrl(s.logo_url || "assets/logo.jpg");
+    const logoUrl = safeUrl(s.logo_url || "assets/logo.svg");
     const header = document.querySelector(".site-header");
     const logo = $("logo");
     if (logoUrl) {
       logo.alt = s.site_title;
       logo.addEventListener("load", () => header.classList.add("has-logo"));
       logo.addEventListener("error", () => header.classList.remove("has-logo"));
+      // In dark mode the bundled logo swaps to the white-lettering version (a custom logo_url is used as is).
+      if (!s.logo_url) $("logo-dark").srcset = "assets/logo-white.svg";
       logo.src = logoUrl;
     }
 
@@ -395,12 +396,134 @@
     $("social-sec").hidden = false;
   }
 
+  // ---------- shared episode-detail pieces (now-playing panel and live card) ----------
+
+  // Hosts / Guests / Mix by rows. onChip(role, name) makes the names clickable; without it they are plain text.
+  function peopleRows(ep, onChip) {
+    const rows = [];
+    for (const [label, names, role] of [["Hosts", ep.hosts, "host"], ["Guests", ep.guests, "guest"], ["Mix by", ep.dj, "dj"]]) {
+      if (!names || !names.length) continue;
+      rows.push(
+        el("div", { class: "row" },
+          el("dt", { text: label }),
+          names.map((n) => {
+            if (!onChip) return el("dd", null, el("span", { class: "chip static", text: n }));
+            const chip = el("button", { class: "chip", type: "button", title: `Show episodes with ${n}`, text: n });
+            chip.addEventListener("click", () => onChip(role, n));
+            return el("dd", null, chip);
+          })
+        )
+      );
+    }
+    return rows;
+  }
+
+  // The running order. "DJ Mix" becomes "<DJ name> (<mix themes>)" plus a small "DJ Mix" tag when a DJ is listed;
+  // with no DJ listed it stays a plain "DJ Mix" item.
+  function inShowItems(ep) {
+    return ep.inShow.map((s) => {
+      if (/^dj\s*mix$/i.test(s.trim()) && ep.dj.length) {
+        let text = ep.dj.join(", ");
+        if (ep.mixThemes.length) text += ` (${ep.mixThemes.join(", ")})`;
+        return el("li", null, el("span", { class: "item", text }), " ", el("span", { class: "tag", text: "DJ Mix" }));
+      }
+      return el("li", null, el("span", { class: "item", text: s }));
+    });
+  }
+
+  // ---------- live show ----------
+
+  // During the show's weekly slot (live_day, live_start, live_end in live_timezone) the live stream is added as the
+  // first entry of the one player and playlist. Returns { ep, watch }: ep is that entry (or null when not on air).
+  // Testing off-air: add ?live to the address to force it on, ?live=off to force it off.
+  function buildLive(s, playlistRows) {
+    const url = safeUrl(s.listen_live_url);
+    const params = new URLSearchParams(location.search);
+    const force = params.has("live") ? (/^(off|0|false|no)$/i.test(params.get("live")) ? "off" : "on") : "";
+
+    const DAYS = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
+    const day = DAYS.indexOf((s.live_day || "").trim().slice(0, 3).toLowerCase());
+    const start = normTime(s.live_start);
+    const end = normTime(s.live_end);
+    const tz = (s.live_timezone || "America/Toronto").trim();
+    const toMin = (t) => +t.slice(0, 2) * 60 + +t.slice(2);
+    const configured = !!url && day >= 0 && !!start && !!end;
+
+    function nowInZone() {
+      try {
+        const parts = new Intl.DateTimeFormat("en-US", { timeZone: tz, weekday: "short", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hourCycle: "h23" }).formatToParts(new Date());
+        const get = (t) => (parts.find((p) => p.type === t) || {}).value || "";
+        return {
+          day: DAYS.indexOf(get("weekday").slice(0, 3).toLowerCase()),
+          min: +get("hour") * 60 + +get("minute"),
+          date: `${get("year")}-${get("month")}-${get("day")}`,
+        };
+      } catch (e) { return null; }
+    }
+
+    function scheduledLive() {
+      if (!configured) return false;
+      const n = nowInZone();
+      if (!n || n.day < 0) return false;
+      const dur = (toMin(end) - toMin(start) + 1440) % 1440 || 1440; // an end at or before the start runs past midnight
+      const since = (n.day * 1440 + n.min - (day * 1440 + toMin(start)) + 10080) % 10080;
+      return since < dur;
+    }
+    const isLive = () => !!url && (force === "on" || (force !== "off" && scheduledLive()));
+
+    if (params.has("admin")) {
+      const n = nowInZone();
+      const pad2 = (x) => String(x).padStart(2, "0");
+      $("live-debug").textContent = configured
+        ? `Live player: ${s.live_day} ${s.live_start}-${s.live_end} (${tz}). Right now there it is ${n ? DAYS[n.day] + " " + pad2(Math.floor(n.min / 60)) + ":" + pad2(n.min % 60) : "unknown"}, so it is ${scheduledLive() ? "ON" : "off"}. Add ?live to the address to force it on.`
+        : "Live player is off: it needs listen_live_url, live_day, live_start and live_end in Settings.";
+    }
+
+    const live = isLive();
+
+    // If the show starts or ends while the page is open, refresh the page (but never interrupt playback).
+    function watch() {
+      setInterval(() => { if (isLive() !== live && $("audio").paused) location.reload(); }, 30000);
+    }
+
+    if (!live) return { ep: null, watch };
+
+    // Details for tonight's show from the Playlist sheet: the row dated today (in live_timezone). A row whose time
+    // equals live_start wins if there are several. In test mode with no row for today, the newest row is used.
+    const rows = (playlistRows || []).filter((r) => normDate(r.date) && isVisible(r.visible) && normDate(r.date) !== "2000-01-01");
+    const n = nowInZone();
+    let row = null;
+    if (n) {
+      const today = rows.filter((r) => normDate(r.date) === n.date);
+      row = today.find((r) => start && normTime(r.time) === start) || today.find((r) => !normTime(r.time)) || today[0] || null;
+    }
+    if (!row && force === "on") row = [...rows].sort((a, b) => normDate(b.date).localeCompare(normDate(a.date)))[0] || null;
+
+    const own = splitList(row && row.hosts);
+    const inShow = splitList(row && row.in_this_show);
+    const title = (row && row.title) || "Live on CFRU 93.3 FM";
+    const ep = {
+      id: "live", file: "live", live: true, source: "live", visible: true, url, date: "", time: "", part: 0, image: "", when: "",
+      title, panelTitle: title,
+      themes: splitList(row && row.theme),
+      hosts: own.length ? own : splitList(s.default_hosts),
+      guests: splitList(row && row.guests),
+      dj: splitList(row && row.dj_mix),
+      mixThemes: splitList(row && row.mix_themes),
+      inShow: row ? (inShow.length ? inShow : splitList(s.default_in_show)) : [],
+      description: (row && row.description) || "",
+      note: force === "on" ? `Test mode: ?live is forcing this on${row ? ` (details from the ${normDate(row.date)} row)` : ""}.` : "",
+    };
+    return { ep, watch };
+  }
+
   // ---------- player ----------
 
   const ICON_PLAY = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
   const ICON_PAUSE = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>';
 
-  function setupPlayer(episodes) {
+  function setupPlayer(archived, liveEp) {
+    const episodes = liveEp ? [liveEp, ...archived] : archived;
     const audio = $("audio");
     const list = $("playlist");
     let idx = -1;
@@ -425,7 +548,7 @@
       const btn = el("button", { class: "ep", type: "button" },
         el("span", { class: "ep-icon" }),
         el("span", null,
-          i === 0 ? el("span", { class: "badge", text: "Latest" }) : null,
+          ep.live ? el("span", { class: "badge live", text: "Live now" }) : i === 0 && !liveEp ? el("span", { class: "badge", text: "Latest" }) : null,
           el("span", { class: "ep-title", text: ep.title }),
           el("span", { class: "ep-sub", text: peopleLine(ep) })
         )
@@ -445,6 +568,7 @@
     const hasName = (names, key) => names.some((n) => n.toLowerCase() === key);
 
     function matches(ep) {
+      if (ep.live) return true;
       if (filters.host && !hasName(ep.hosts, filters.host)) return false;
       if (filters.guest && !hasName(ep.guests, filters.guest)) return false;
       if (filters.dj && !hasName(ep.dj, filters.dj)) return false;
@@ -551,38 +675,18 @@
 
     function renderNowPlaying(ep) {
       $("np-title").textContent = ep.panelTitle;
-      $("np-badge").hidden = ep !== episodes[0];
+      $("player").classList.toggle("is-live", !!ep.live);
+      $("np-live").hidden = !ep.live;
+      $("np-badge").hidden = !!liveEp || ep !== episodes[0];
+      const note = $("np-note");
+      note.textContent = ep.note || "";
+      note.hidden = !ep.note;
       const theme = $("np-theme");
       theme.textContent = ep.themes.length ? `Theme: ${ep.themes.join(", ")}` : "";
       theme.hidden = !ep.themes.length;
 
-      const people = $("np-people");
-      people.replaceChildren();
-      for (const [label, names, role] of [["Hosts", ep.hosts, "host"], ["Guests", ep.guests, "guest"], ["Mix by", ep.dj, "dj"]]) {
-        if (!names || !names.length) continue;
-        people.append(
-          el("div", { class: "row" },
-            el("dt", { text: label }),
-            names.map((n) => {
-              const chip = el("button", { class: "chip", type: "button", title: `Show episodes with ${n}`, text: n });
-              chip.addEventListener("click", () => filterBy(role, n));
-              return el("dd", null, chip);
-            })
-          )
-        );
-      }
-
-      // "DJ Mix" in the running order becomes "<DJ name> (<mix themes>)" followed by a small "DJ Mix" tag
-      // when the row has a DJ. With no DJ listed it stays a plain "DJ Mix" item.
-      const show = $("np-show");
-      show.replaceChildren(...ep.inShow.map((s) => {
-        if (/^dj\s*mix$/i.test(s.trim()) && ep.dj.length) {
-          let text = ep.dj.join(", ");
-          if (ep.mixThemes.length) text += ` (${ep.mixThemes.join(", ")})`;
-          return el("li", null, el("span", { class: "item", text }), " ", el("span", { class: "tag", text: "DJ Mix" }));
-        }
-        return el("li", null, el("span", { class: "item", text: s }));
-      }));
+      $("np-people").replaceChildren(...peopleRows(ep, (role, n) => filterBy(role, n)));
+      $("np-show").replaceChildren(...inShowItems(ep));
       $("np-show-wrap").hidden = !ep.inShow.length;
 
       const desc = $("np-desc");
@@ -659,7 +763,11 @@
     });
 
     function togglePlay() {
-      if (audio.paused) audio.play().catch(() => {});
+      if (audio.paused) {
+        // Resuming the live stream should rejoin the live point, not replay what was buffered before pausing.
+        if (episodes[idx] && episodes[idx].live && audio.readyState > 0) audio.load();
+        audio.play().catch(() => {});
+      }
       else audio.pause();
     }
 
@@ -699,7 +807,7 @@
       if (n >= 0) select(n, true);
       else setPlayingUI(false);
     });
-    audio.addEventListener("error", () => showMessage("Sorry, this episode couldn't be loaded. Try another one.", true));
+    audio.addEventListener("error", () => { if (audio.getAttribute("src")) showMessage(episodes[idx] && episodes[idx].live ? "Couldn't load the live stream right now." : "Sorry, this episode couldn't be loaded. Try another one.", true); });
 
     if ("mediaSession" in navigator) {
       const set = (a, fn) => { try { navigator.mediaSession.setActionHandler(a, fn); } catch (e) { /* unsupported */ } };
@@ -766,13 +874,17 @@
 
     const settings = { ...DEFAULTS };
     for (const r of settingsRows) if (r.key && r.key in DEFAULTS) settings[r.key] = r.value || "";
+    // These need a value to work, so an empty cell in the sheet means "use the built-in default".
+    for (const k of ["listen_live_url", "live_start", "live_end", "live_timezone"]) if (!settings[k]) settings[k] = DEFAULTS[k];
 
     applySettings(settings);
     renderSocial(socialRows);
 
     const { episodes, all, warnings } = mergeEpisodes(files, playlistRows, settings);
     warnings.forEach((w) => console.warn(w));
-    setupPlayer(episodes);
+    const live = buildLive(settings, playlistRows);
+    setupPlayer(episodes, live.ep);
+    live.watch();
     if (new URLSearchParams(location.search).has("admin")) renderAdmin(all, warnings);
   }
 

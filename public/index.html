@@ -12,7 +12,7 @@
 
   <header class="site-header">
     <div class="wrap">
-      <div class="logo-plate"><img id="logo" class="logo" alt="" width="150" height="150"></div>
+      <div class="logo-plate"><picture><source id="logo-dark" media="(prefers-color-scheme: dark)"><img id="logo" class="logo" alt="" width="300" height="159"></picture></div>
       <h1 id="site-title" class="site-title">Sound So Nice Radio</h1>
       <p id="tagline" class="tagline"></p>
       <p id="show-desc" class="show-desc" hidden></p>
@@ -21,7 +21,8 @@
   </header>
 
   <main class="wrap">
-    <section class="card player" aria-labelledby="np-title">
+    <section id="player" class="card player" aria-labelledby="np-title">
+      <p id="np-live" class="live-badge" hidden><span class="dot" aria-hidden="true"></span> Live now</p>
       <p id="np-badge" class="badge" hidden>Latest episode</p>
       <h2 id="np-title">Loading…</h2>
       <p id="np-theme" class="theme" hidden></p>
@@ -31,31 +32,33 @@
         <ul id="np-show"></ul>
       </div>
       <p id="np-desc" class="desc" hidden></p>
+      <p id="np-note" class="live-sub" hidden></p>
 
       <audio id="audio" preload="none"></audio>
 
       <div class="controls">
-        <input id="seek" class="seek" type="range" min="0" max="0" step="1" value="0" disabled aria-label="Seek">
-        <div class="times"><span id="t-cur">0:00</span><span id="t-dur">--:--</span></div>
+        <input id="seek" class="seek not-live" type="range" min="0" max="0" step="1" value="0" disabled aria-label="Seek">
+        <div class="times not-live"><span id="t-cur">0:00</span><span id="t-dur">--:--</span></div>
         <div class="buttons">
           <button id="b-prev" class="btn-icon" type="button" aria-label="Previous episode (newer)">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6h2v12H6zM9.5 12 18 6v12z"/></svg>
           </button>
-          <button id="b-back" class="btn-text" type="button" aria-label="Back 15 seconds">&minus;15s</button>
+          <button id="b-back" class="btn-text not-live" type="button" aria-label="Back 15 seconds">&minus;15s</button>
           <button id="b-play" class="btn-play" type="button" aria-label="Play">
             <svg id="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
             <svg id="i-pause" viewBox="0 0 24 24" aria-hidden="true" hidden><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
           </button>
-          <button id="b-fwd" class="btn-text" type="button" aria-label="Forward 30 seconds">+30s</button>
+          <button id="b-fwd" class="btn-text not-live" type="button" aria-label="Forward 30 seconds">+30s</button>
           <button id="b-next" class="btn-icon" type="button" aria-label="Next episode (older)">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 6h2v12h-2zM6 18V6l8.5 6z"/></svg>
           </button>
         </div>
+        <p class="live-hint only-live">Press play to listen live</p>
         <label class="volume">
           <span>Volume</span>
           <input id="vol" type="range" min="0" max="1" step="0.05" value="1">
         </label>
-        <div class="share">
+        <div class="share not-live">
           <button id="b-share" class="btn-share" type="button">Copy link at <span id="share-time">0:00</span></button>
         </div>
         <p id="player-msg" class="msg" role="status" hidden></p>
@@ -103,6 +106,7 @@
     <section id="admin" hidden>
       <h2 class="section-h">Admin view</h2>
       <p class="msg">Not linked from the site. Use this to find the date and time to put in the Playlist sheet.</p>
+      <p id="live-debug" class="msg"></p>
       <div id="admin-warnings"></div>
       <div class="table-wrap"><table id="admin-table"></table></div>
     </section>

@@ -72,17 +72,17 @@ h1, h2 { margin: 0; font-weight: 400; }
 
 /* ---------- Header ---------- */
 .site-header { padding: 36px 0 28px; text-align: center; }
-.logo-plate { display: none; width: 150px; margin: 0 auto 18px; border-radius: 14px; overflow: hidden; background: #f7f7f7; }
+.logo-plate { display: none; width: min(300px, 82vw); margin: 0 auto 18px; padding: 10px 14px; box-sizing: border-box; border-radius: 14px; overflow: hidden; background: #f7f7f7; }
 .has-logo .logo-plate { display: block; }
-.logo { display: block; width: 150px; height: auto; }
+.logo { display: block; width: 100%; height: auto; }
+@media (prefers-color-scheme: dark) { .logo-plate { background: transparent; } } /* the white-lettering logo sits straight on the dark page */
 .site-title { font-family: var(--display); text-transform: uppercase; letter-spacing: 0.04em; font-size: clamp(2.4rem, 9vw, 3.6rem); line-height: 1; }
 .has-logo .site-title { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .tagline { margin: 0; font-family: var(--display); text-transform: uppercase; letter-spacing: 0.22em; font-size: 1.15rem; color: var(--muted); }
 .tagline:empty { display: none; }
 .schedule-line { margin: 12px auto 0; font-family: var(--display); text-transform: uppercase; letter-spacing: 0.14em; font-size: 1.15rem; color: var(--red); }
 .schedule-line[hidden] { display: none; }
-.schedule-line a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
-.schedule-line a:hover { color: var(--gold); }
+@media (prefers-color-scheme: dark) { .schedule-line { color: #ff6f5e; } } /* brighter red for contrast on the dark page */
 .show-desc { max-width: 54ch; margin: 14px auto 0; font-size: 1.05rem; white-space: pre-line; }
 .has-logo .tagline { margin-top: 0; }
 
@@ -245,12 +245,30 @@ button:disabled { opacity: 0.4; cursor: default; }
 
 .badge {
   display: inline-block; margin: 0 0 4px; padding: 1px 9px; border-radius: 3px;
-  background: var(--red); color: #fff; font-family: var(--display); letter-spacing: 0.12em;
+  background: var(--green); color: #fff; font-family: var(--display); letter-spacing: 0.12em;
   text-transform: uppercase; font-size: 0.95rem; line-height: 1.5;
 }
 .ep .badge { display: block; width: max-content; margin-bottom: 2px; font-size: 0.8rem; }
-.player .badge { background: var(--gold); color: #141110; }
 .player .badge[hidden], .badge[hidden] { display: none; }
+
+/* Live player: red is reserved for "live" */
+.live-badge {
+  display: inline-flex; align-items: center; gap: 8px; margin: 0 0 6px; padding: 2px 12px 2px 10px; border-radius: 3px;
+  background: var(--red); color: #fff; font-family: var(--display); letter-spacing: 0.14em; text-transform: uppercase; font-size: 1.05rem;
+}
+.live-badge .dot { width: 9px; height: 9px; border-radius: 50%; background: #fff; animation: live-pulse 1.4s ease-in-out infinite; }
+@keyframes live-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+@media (prefers-reduced-motion: reduce) { .live-badge .dot { animation: none; } }
+.live-sub { margin: 10px 0 0; color: var(--panel-muted); font-size: 0.9rem; }
+.live-sub:empty { display: none; }
+.live-hint { margin: 0; text-align: center; color: var(--panel-muted); font-size: 0.85rem; }
+.only-live { display: none; }
+.is-live .only-live { display: block; }
+.is-live .not-live { display: none; }
+.badge.live { background: var(--red); }
+.live-badge[hidden], .live-sub[hidden] { display: none; }
+.chip.static { cursor: default; }
+.chip.static:hover { background: rgba(255, 255, 255, 0.1); color: var(--panel-text); }
 
 .btn-more {
   display: block; margin: 12px auto 0; padding: 8px 22px; border-radius: 3px; cursor: pointer;
